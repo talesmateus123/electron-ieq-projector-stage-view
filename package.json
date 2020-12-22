@@ -1,0 +1,23 @@
+{
+  "name": "ieq-md-projector-stage-view",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "pack:osx": "electron-packager . projetor_ieq --out=dist/osx --platform=darwin --arch=x64 --icon=assets/build/ieq-icon.ico && npm run codesign",
+    "pack:win32": "electron-packager . projetor_ieq --out=dist/win --platform=win32 --arch=ia32 --icon=assets/ieq-icon.ico",
+    "pack:win64": "electron-packager . projetor_ieq --out=dist/win --platform=win32 --arch=x64 --app-version=0.36.2 app-version=1.0 --icon=assets/ieq-icon.ico",
+    "build": "npm run pack:osx && npm run pack:win32 && npm run pack:win64"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0"
+  },
+  "devDependencies": {
+    "electron": "^11.1.1",
+    "electron-packager": "^15.2.0"
+  }
+}

@@ -1,0 +1,59 @@
+/******************************************************************************
+* OpenLP - Open Source Lyrics Projection                                      *
+* --------------------------------------------------------------------------- *
+* Copyright (c) 2008-2017 OpenLP Developers                                   *
+* --------------------------------------------------------------------------- *
+* This program is free software; you can redistribute it and/or modify it     *
+* under the terms of the GNU General Public License as published by the Free  *
+* Software Foundation; version 2 of the License.                              *
+*                                                                             *
+* This program is distributed in the hope that it will be useful, but WITHOUT *
+* ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or       *
+* FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for    *
+* more details.                                                               *
+*                                                                             *
+* You should have received a copy of the GNU General Public License along     *
+* with this program; if not, write to the Free Software Foundation, Inc., 59  *
+* Temple Place, Suite 330, Boston, MA 02111-1307 USA                          *
+******************************************************************************/
+
+body {
+  background-color: blue;
+  font-family: sans-serif;
+  overflow: hidden;
+}
+
+#currentslide {
+  font-weight: bold;
+  text-shadow: 6px 6px 6px rgba(0, 0 , 0, 0.8);
+  -webkit-text-stroke: 1px black;
+  text-align: center; 
+  font-size: 30pt;
+  color: yellow;
+  padding-bottom: 0px; 
+}
+
+/*
+#currentslide {
+  font-weight: bold;
+  text-shadow: 6px 6px 6px rgba(0, 0 , 0, 0.8);
+  -webkit-text-stroke: 2px white;
+  text-align: center; 
+  font-size: 30pt;
+  color: white;
+  padding-bottom: 0px;
+}
+*/
+
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  resize: vertical;
+}
+
+.flex-center p {
+  margin: 0;
+  padding: 20px;
+}
