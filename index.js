@@ -10,7 +10,7 @@ const store = new Store({
   defaults: {
     windowBounds: { width: 900, height: 300 }
   }
-});
+})
 
 function createWindow () {
   let { width, height } = store.get('windowBounds');
