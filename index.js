@@ -24,7 +24,7 @@ function createWindow () {
     }
   })
 
-  win.on('resize', event => {
+  win.on('resize', () => {
     let { width, height } = win.getBounds();
     // Now that we have them, save them using the `set` method.
     store.set('windowBounds', { width, height });
