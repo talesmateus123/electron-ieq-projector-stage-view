@@ -40,7 +40,7 @@ window.OpenLP = {
       if (slide && !slide.img && OpenLP.show)
         text = slide['text']
       
-      text = text.replace(/\n/g, '<br/>')
+      text = text.replace(/\n/g, '<br/>') + ' <input type="hidden" name="error" value="false">'
 
       const el = document.querySelector('#currentslide')
       el.innerHTML = text
@@ -48,7 +48,6 @@ window.OpenLP = {
   },
   pollServer: function () {
     axios.get(`${URL}/api/poll`).then(res => {
-      console.log(res)
       OpenLP.show = !res.data.results.blank && !res.data.results.display && !res.data.results.theme
       if (OpenLP.currentItem != res.data.results.item ||
           OpenLP.currentService != res.data.results.service) {
@@ -60,6 +59,10 @@ window.OpenLP = {
         OpenLP.currentSlide = parseInt(res.data.results.slide, 10)
         OpenLP.updateSlide()
       }
+    })
+    .catch(error => {
+      const el = document.querySelector('#currentslide')
+      el.innerHTML = `${error.message} <br/> <input type="hidden" name="error" value="true">`
     })
   }
 }

@@ -1,20 +1,41 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, Menu } = require('electron')
+const currentPlatform = require('os').platform()
+
+Menu.setApplicationMenu(null)
+const shortcutsConfig = require('./shortcutsConfig')
+const Store = require('./store')
+
+const store = new Store({
+  configName: 'user-preferences',
+  defaults: {
+    windowBounds: { width: 900, height: 300 }
+  }
+});
 
 function createWindow () {
+  let { width, height } = store.get('windowBounds');
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: width,
+    height: height,
     frame: false,
-    icon: 'assets/ieq-icon.ico',
+    icon: currentPlatform === 'win32' ? 'assets/win/ieq-icon.ico' : currentPlatform === 'linux' ? 'assets/linux/ieq-icon.png' : 'assets/osx/ieq-icon.png',
     webPreferences: {
       nodeIntegration: true
     }
   })
 
+  win.on('resize', event => {
+    let { width, height } = win.getBounds();
+    // Now that we have them, save them using the `set` method.
+    store.set('windowBounds', { width, height });
+  })
+
   win.loadFile('stage-view/index.html')
 }
 
-app.whenReady().then(createWindow)
+app.whenReady().then(() => {
+  shortcutsConfig()
+}).then(createWindow)
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {

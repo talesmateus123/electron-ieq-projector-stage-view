@@ -18,6 +18,8 @@
 ******************************************************************************/
 
 body {
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
   background-color: blue;
   font-family: sans-serif;
   overflow: hidden;
