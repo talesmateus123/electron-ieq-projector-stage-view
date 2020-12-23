@@ -20,9 +20,9 @@
 body {
   -webkit-user-select: none;
   -webkit-app-region: drag;
-  background-color: blue;
   font-family: sans-serif;
   overflow: hidden;
+  background-color: blue;
 }
 
 #currentslide {
@@ -51,7 +51,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
+  height: 92vh;
   resize: vertical;
 }
 
