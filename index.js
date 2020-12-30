@@ -16,7 +16,6 @@ const store = new Store({
 function createWindow () {
   let { width, height } = store.get('windowBounds')
   let { x, y } = store.get('location')
-  console.log(x, y)
   const win = new BrowserWindow({
     width: width,
     height: height,
@@ -31,7 +30,6 @@ function createWindow () {
 
   win.on('resize', () => {
     let { width, height } = win.getBounds();
-    // Now that we have them, save them using the `set` method.
     store.set('windowBounds', { width, height });
   })
 
